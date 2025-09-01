@@ -1,0 +1,81 @@
+<!-- This is our html file for listing and viewing videos about Nintendo Switch games. -->
+
+<!-- This is so we can use our css files. -->
+{% load static %}
+
+<!-- We have this head here to have the page title and add css-->
+<head>
+  <title>Epic Forums - Nintendo Switch Videos</title>
+  <link rel="stylesheet" href="{% static 'css/nsvidscss.css' %}">
+</head>
+
+<body>
+  <h2>Nintendo Switch Videos</h2>
+  
+<!-- This part is the link to uploading a new video --> 
+<div class = "create">
+  <a href="{% url 'addVideo' %}?category=nsvideos">Upload a Video about a Nintendo Switch Game Here!</a>
+</div>
+<br><br>
+<div class = "format">
+<div class = "posts">
+<!-- Here we display every video. -->
+{% for v in videos %}
+  <div class = "title">
+    {{ v.title|default:"Untitled" }}
+    </div>
+    <div class = "description">
+    <p>Uploaded by {{ v.user.username }} on {{ v.uploaded_at|date:"M d, Y" }}</p>
+
+    <video width="480" controls>
+      <source src="{{ v.video.url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <br>
+      <br>
+  
+  <!-- This button allows us to hide or view replies. -->
+  <div class="button" onclick="toggle(this)">
+            View Replies
+  </div>
+
+  <div class = "hide">
+    <!-- Here we display every reply to a video and who created the reply. -->
+    {% for reply in v.videoreply_set.all %}
+      <div class = "replies">
+      {{ reply.user.username }}:   {{ reply.discuss }}
+      <br><br>
+      </div>
+        
+    <!-- Case for no replies in the post. -->    
+    {% empty %}
+      <p>No replies yet.</p>
+    {% endfor %}
+    </div>
+    </div>
+    <br>
+    <div class = "link">
+    <a href="{% url 'addVideoReply' %}?video_id={{ v.id }}">Add a Reply</a>
+    </div>
+    <br>
+<!-- Case for no posts. -->
+{% empty %}
+  <div class = "noposts">
+    No videos yet in this category.
+  </div>
+{% endfor %}
+</div>
+</div>
+</body> 
+
+<!-- Javascript function that allows you to to hide and view replies. -->
+<script>
+    function toggle(button) {
+      const divForReplies = button.nextElementSibling;
+      const isHidden = divForReplies.style.display === "none" || divForReplies.style.display === "";
+
+      divForReplies.style.display = isHidden ? "block" : "none";
+      button.textContent = isHidden ? "Hide Replies" : "View Replies";;
+    }
+  </script>

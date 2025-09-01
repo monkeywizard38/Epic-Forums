@@ -1,0 +1,196 @@
+body {
+  background-image: url('/static/images/gamesforumbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.titleText {
+  text-align: center;
+  color: purple;
+  font-family: Garamond, serif;
+  font-size: 40px;
+  
+}
+
+.bodyText {
+  text-align: center;
+  color: rgb(68, 68, 246);
+  font-family: Georgia, serif;
+  font-size: 15px;
+
+}
+.loginSection{
+  text-align: right;
+  color:rgb(68, 68, 246);
+  
+  
+}
+.loginSection button{
+  color: purple;
+  border-radius: 25px;
+  padding: 5px 10px;
+  
+  
+}
+.loginSection a:link, .loginsection a:visited{
+  background-color: purple;
+  color: white;
+  padding: 10px 0px;
+  width:60px;
+  max-width:60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+  padding: 10px 10px;
+}
+.loginSection a{
+  margin: 0 200px;
+  text-align:center;
+}
+.loginSection a:hover{
+  color: purple; /* Change text color on hover */
+  text-decoration: underline; /* Add underline on hover */
+  background-color: white; /* Add a background highlight on hover */
+}
+.placesToTalk {
+  
+  color: #fff;
+  text-align: center;
+}
+.placesToTalk a{
+   margin: 0 15px;
+}
+.placesToTalk a:link,
+.placesToTalk a:visited {
+  background-color: gray;
+  color: white;
+  padding: 15px 0px;
+  width: 350px;
+  max-width: 400px;
+  
+  text-align: center;
+  
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+.placesToTalk a:hover {
+      color: gray; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.playstation, .ps4 {
+  
+  color: #fff;
+  text-align: center;
+}
+.playstation a, .ps4 a{
+   margin: 0 15px;
+}
+
+.playstation a:link, .ps4 a:link,
+.playstation a:visited, .ps4 a:visited {
+  background-color: blue;
+  color: white;
+  border-radius: 25px;
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 0px;
+  width: 350px;
+  max-width: 400px;
+}
+.playstation a:hover, .ps4 a:hover {
+      color: blue; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.nintendo {
+  
+  color: #fff;
+  text-align: center;
+}
+.nintendo a{
+   margin: 0 15px;
+}
+
+.nintendo a:link,
+.nintendo a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 0px;
+  width: 350px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.nintendo a:hover {
+      color: #f44336; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.xbox, .xbox1 {
+  
+  color: #fff;
+  text-align: center;
+}
+.xbox a, .xbox1 a{
+   margin: 0 15px;
+}
+
+.xbox a:link, .xbox1 a:link,
+.xbox a:visited, .xbox1 a:visited {
+  background-color: green;
+  color: white;
+  padding: 15px 0px;
+  width: 350px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.xbox a:hover, .xbox1 a:hover {
+      color: green; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.retro {
+  
+  color: #fff;
+  text-align: center;
+}
+
+.retro a{
+   margin: 0 15px;
+}
+
+.retro a:link,
+.retro a:visited {
+  background-color: orange;
+  color: white;
+  padding: 15px 0px;
+  width: 350px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+.retro a:hover {
+      color: orange; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.aboutme{
+  text-align: center;
+  color: white;
+}

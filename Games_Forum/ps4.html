@@ -1,0 +1,24 @@
+<h2>PS4 Forum</h2>
+
+<a href="{% url 'addInForum' %}?category=ps4">Create a Post in PS4</a>
+
+{% for f in forums %}
+  <div>
+    <h3>{{ f.topic }}</h3>
+    <p>{{ f.description }}</p>
+    <p>Posted by: {{ f.name }}</p>
+
+    <h4>Replies:</h4>
+    {% for reply in f.discussion_set.all %}
+      <div>
+        <p style="color:red;">{{ reply.discuss }}</p>
+      </div>
+    {% empty %}
+      <p><em>No replies yet.</em></p>
+    {% endfor %}
+
+    <a href="{% url 'addInDiscussion' %}?forum_id={{ f.id }}">Add a Reply</a>
+  </div>
+{% empty %}
+  <p>No posts yet in this category.</p>
+{% endfor %}

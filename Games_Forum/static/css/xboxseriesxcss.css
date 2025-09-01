@@ -1,0 +1,113 @@
+body {
+  background-image: url('/static/images/gamesforumbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  overflow-x: hidden;
+  background-attachment: fixed;
+
+}
+
+h2{
+    text-align: center;
+    color: purple;
+    font-family: Garamond, serif;
+    font-size: 60px;
+}
+.create {
+    text-align: center;
+}
+.create a{
+    text-align: center;
+}
+.create a:link,
+.create a:visited {
+  background-color: green;
+  color: white;
+  padding: 25px 0px;
+  width: 350px;
+  max-width: 400px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+}
+.create a:hover {
+      color: green; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.title{
+    text-align: center;
+    color: white;
+    font-family: Garamond, serif;
+    font-size: 50px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 25px;
+    padding: 10px 10px;
+    width: 50%
+}
+.description{
+    text-align: left;
+    border-radius: 25px;
+    font-size: 20px;
+    margin-left: 460px ;
+    background-color:green;
+    width:50%;
+    padding:10px 10px;
+}
+
+.replies{
+    margin-left: 20px;
+}
+.hide{
+      display: none;
+
+}
+* {
+  box-sizing: border-box;
+}
+.link a{
+  margin: 0 500px;
+}
+.link a:visited, .link a:link{
+  background-color: black;
+  color: white;
+  padding: 15px 0px;
+  width: 120px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.link a:hover {
+      color: black; /* Change text color on hover */
+      text-decoration: underline; /* Add underline on hover */
+      background-color: white; /* Add a background highlight on hover */
+    }
+.button{
+      color: rgb(127, 8, 8);
+      display: inline-block;
+      cursor:pointer;
+}
+
+.button:hover{
+  color:aquamarine;
+}
+
+.noposts{
+    text-align: center;
+    color: white;
+    font-family: Garamond, serif;
+    font-size: 50px;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 25px;
+    padding: 10px 10px;
+    width: 50%;
+}

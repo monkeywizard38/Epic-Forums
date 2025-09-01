@@ -1,0 +1,39 @@
+body {
+  background-image: url('/static/images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.titleText {
+  text-align: center;
+  color: purple;
+  font-family: Garamond, serif;
+  font-size: 40px;
+}
+
+.bodyText {
+  text-align: center;
+  color: cyan;
+  font-family: Georgia, serif;
+}
+
+.placesToTalk {
+  background-color: white;
+  background-image: url('/static/images/bear.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  text-align: center;
+}
+
+.placesToTalk a:link,
+.placesToTalk a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}

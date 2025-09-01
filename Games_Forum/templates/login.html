@@ -1,0 +1,25 @@
+<!-- This is so we can use our css files. -->
+{% load static %}
+
+<head>
+  <title>Epic Forums - Login</title>
+  <link rel="stylesheet" href="{% static 'css/logincss.css' %}">
+</head>
+<body>
+<!-- We use the center class here so we don't modify the whole page -->
+<div class = 'center'>
+
+  <h2>Login</h2>
+  <form method="post">
+    {% csrf_token %}
+    <!-- Default Django form -->
+    {{ form.as_p }} 
+    <button type="submit">Login</button>
+  </form>
+
+  {% if form.errors %}
+    <p style="color: red;">Invalid login credentials. Please try again.</p>
+  {% endif %}
+
+</div>
+</body>

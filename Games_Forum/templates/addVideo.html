@@ -1,0 +1,45 @@
+<!-- This is so we can use our css files. -->
+{% load static %}
+
+<!-- We have this head here to have the page title and add css-->
+<head>
+    <title>Epic Forums - Add a New Video</title>
+    <link rel="stylesheet" href="{% static 'css/addForumcss.css' %}">
+</head>
+<!-- We use the center class here so we don't modify the whole page -->
+<div class = 'center'>
+<h2>Upload a Video</h2>
+<!-- Here we have the form for Uploading a video. -->
+<form method="post" action="{% url 'addVideo' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="hidden" name="category" value="{{ category }}">
+
+  <!-- Tells us if there are any errors. -->
+  {% if form.errors %}
+    <ul style="color:red;">
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li>{{ field.label }}: {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  
+
+  
+<!-- Inputs -->
+  <label for="id_title">Title:</label><br>
+  {{ form.title }}<br><br>
+
+  <label for="id_video">Video file:</label><br>
+  {{ form.video }}<br><br>
+
+  
+  <!-- Here we by default add the categories based on the page we are on. -->
+  <input type="hidden" name="category" value="{{ category }}">
+
+  <input type="submit" value="Submit">
+  
+</form>
+</div>

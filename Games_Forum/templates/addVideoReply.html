@@ -1,0 +1,21 @@
+<!-- This is so we can use our css files. -->
+{% load static %}
+
+<!-- We have this head here to have the page title and add css-->
+<head>
+  <title>Epic Forums - Add a New Video Reply</title>
+  <link rel="stylesheet" href="{% static 'css/addForumcss.css' %}">
+<!-- We use the center class here so we don't modify the whole page -->
+<div class = 'center'>
+<h2>Add a Reply</h2>
+<!-- Here we have the form for replying to a video, including the labels we need. -->
+<form method="post" action="{% url 'addVideoReply' %}">
+  {% csrf_token %}
+  <input type="hidden" name="video_id" value="{{ video_id }}">
+
+  {{ form.discuss.label_tag }}<br>
+  {{ form.discuss }}<br><br>
+
+  <input type="submit" value="Submit Video Reply">
+</form>
+</div>

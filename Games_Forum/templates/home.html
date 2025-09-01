@@ -1,0 +1,80 @@
+<!-- This is so we can use our css files. -->
+{% load static %}
+<html>
+<!-- We have this head here to have the page title and add css-->
+<head>
+    <title>Epic Forums - Home</title>
+    <link rel="stylesheet" href="{% static 'css/homecss.css' %}">
+</head>
+<body>
+    <!-- Here we have the welcome text, both the title and body. -->
+    <div class="titleText">Epic Forums</div>
+    <br>
+
+    <div class="bodyText">
+        Welcome to the Epic Forums website. Here you can talk to friends and strangers about games and spread opinions and reviews.
+    </div>
+    
+
+    <!-- This is where we have our login and register buttons, or logout, depending on if you are logged in or not. -->
+    <div class = "loginSection">
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button style = "color: white; background-color: purple;", type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a><br><br>
+        <a href="{% url 'register' %}">Register</a>
+        
+    {% endif %}
+</div>
+    <br><br>
+    <!-- From here, we divide the links to each page into classes for formatting reasons. The links below are Forum category posts. -->
+
+    <div class="placesToTalk">
+        <a href="{% url 'category_forums' 'pc' %}">Talk about PC games</a>
+        <a href="{% url 'category_videos' 'pcvideos' %}">Watch and Post PC videos</a><br>
+    </div>
+    <br>
+    <div class = "playstation">
+        <a href="{% url 'category_forums' 'ps5' %}">Talk about Playstation 5 Games</a>
+        <a href="{% url 'category_videos' 'ps5videos' %}">Watch and Post Playstation 5 Videos</a><br>
+    </div>
+    <br>
+    <div class = "ps4">
+        <a href="{% url 'category_forums' 'ps4' %}">Talk about Playstation 4 Games</a>
+        <a href="{% url 'category_videos' 'ps4videos' %}">Watch and Post Playstation 4 Videos</a><br>
+    </div>
+    <br>
+    <div class = "nintendo">
+        <a href="{% url 'category_forums' 'nintendo switch 2' %}">Talk about Nintendo Switch 2 Games</a>
+        <a href="{% url 'category_videos' 'ns2videos' %}">Watch and Post Nintendo Switch 2 Videos</a><br><br>
+        <a href="{% url 'category_forums' 'nintendo switch' %}">Talk about Nintendo Switch Games</a>
+        <a href="{% url 'category_videos' 'nsvideos' %}">Watch and Post Nintendo Switch Videos</a><br>
+    </div>
+    <br>
+    <div class = "xbox">
+        <a href="{% url 'category_forums' 'xbox series x' %}">Talk about Xbox Series X/S Games</a>
+        <a href="{% url 'category_videos' 'xseriesvideos' %}">Watch and Post Xbox Series X/S Videos</a><br>
+    </div>
+    <br>
+    <div class = "xbox1">
+        <a href="{% url 'category_forums' 'xbox one' %}">Talk about Xbox One Games</a>
+        <a href="{% url 'category_videos' 'xonevideos' %}">Watch and Post Xbox One Videos</a><br>
+    </div>
+    <br>
+    <div class = "retro">
+        <a href="{% url 'category_forums' 'retro' %}">Talk about Retro Games</a>
+        <a href="{% url 'category_videos' 'retrovideos' %}">Watch and Post Retro Videos</a><br>
+    </div>
+    <br>
+    <br>
+    
+    <!-- Note for me to mention myself. -->
+    <div class = "aboutme">
+        Any Questions or Help needed, contact the Website's Creator Jeremy Nilles @nv94411@umbc.edu
+    </div>
+</body>
+</html>

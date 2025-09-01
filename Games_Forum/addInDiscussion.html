@@ -1,0 +1,11 @@
+<h2>Add a Reply</h2>
+
+<form method="post" action="{% url 'addInDiscussion' %}">
+  {% csrf_token %}
+  <input type="hidden" name="forum_id" value="{{ forum_id }}">
+
+  <label>Reply:</label><br>
+  <textarea name="discuss" rows="5" required></textarea><br><br>
+
+  <input type="submit" value="Submit Reply">
+</form>

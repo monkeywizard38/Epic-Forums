@@ -1,0 +1,29 @@
+body {
+  background-image: url('/static/images/gamesforumbackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  overflow-x: hidden;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-attachment: fixed;
+  
+
+
+}
+.center{
+  
+  background-color: rgb(81, 7, 81);
+  padding: 10px 50px;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+input[type='text'], input[type = 'password']{
+  font-family:arial;
+  background-color: black;
+  color:white;
+}
+

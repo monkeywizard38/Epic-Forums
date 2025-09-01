@@ -1,0 +1,43 @@
+<!-- This is so we can use our css files. -->
+{% load static %}
+<!-- We have this head here to have the page title and add css-->
+<head>
+  <title>Epic Forums - Add a New Post</title>
+  <link rel="stylesheet" href="{% static 'css/addForumcss.css' %}">
+</head>
+
+<body>
+<!-- We use the center class here so we don't modify the whole page -->
+<div class = "center">
+<h2>Create a Post</h2>
+<!-- Here we load the form for creating a post. -->
+<form method="post" action="{% url 'addForum' %}">
+  {% csrf_token %}
+  <input type="hidden" name="category" value="{{ category }}">
+  <!-- This is so it can tell us if there are errors or not. -->
+  {% if form.errors %}
+    <ul style="color:red;">
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li>{{ field.label }}: {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  
+
+  <!-- Topic and description that we enter. -->
+
+  <label>Topic:</label><br>
+  {{ form.topic }}<br><br>
+
+  <label>Description:</label><br>
+  {{ form.description }}<br><br>
+
+  <!-- default category depending on which page we are on. -->
+  <input type="hidden" name="category" value="{{ category }}">
+  <input type="submit" value="Submit">
+  </div>
+</form>
+</body>
