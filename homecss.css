@@ -1,0 +1,42 @@
+body {
+    background-color: powderblue;
+    text-align: justify;
+  }
+  .titleText{
+    font-family: "Times New Roman", Times, serif;
+    background-color: aquamarine;
+    font-size: 40px;
+    text-align: center;
+
+
+  }
+  .bodytext {
+    color: blue;
+    text-align: center;
+
+
+  }
+  .placestotalk {
+    color: red;
+    text-align: center;
+
+  }
+  /* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
