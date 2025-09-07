@@ -7,8 +7,7 @@ from .models import *
 class CreateForum(ModelForm):
     class Meta:
         model= forum
-        exclude = ['category']  # so it's not required in the form
-        exclude = ['user']
+        exclude = ['category', 'user']  # so it's not required in the form
         fields = "__all__"
         widgets = {'description': forms.Textarea(attrs={'rows': 6, 'cols':50}), 'topic':forms.Textarea(attrs={'rows':2,'cols':50})}
  

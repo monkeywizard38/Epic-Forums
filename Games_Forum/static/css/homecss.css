@@ -24,6 +24,7 @@ body {
 .loginSection{
   text-align: right;
   color:rgb(68, 68, 246);
+  word-break: break-all;
   
   
 }
@@ -53,6 +54,7 @@ body {
 .loginSection a:hover{
   color: purple; /* Change text color on hover */
   text-decoration: underline; /* Add underline on hover */
+  width: 50%;
   background-color: white; /* Add a background highlight on hover */
 }
 .placesToTalk {

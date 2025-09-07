@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import * 
 from .forms import * 
 from django.contrib.auth.decorators import login_required
@@ -154,3 +154,24 @@ def addVideoReply(request):
         'video_id': request.GET.get('video_id'),  # pass forum_id so the form can keep it
     }
     return render(request, 'addVideoReply.html', context)
+
+
+@login_required
+def editForum(request,forum_id, category_name):
+    #category = request.POST.get("category") or request.GET.get("category")
+    #category = get_object_or_404(category, name=category_name)
+    post = get_object_or_404(forum, id=forum_id, user=request.user)
+    if request.method == 'POST':
+        form = CreateForum(request.POST, instance = post)
+        if form.is_valid():
+            
+            forum_instance = form.save(commit=False) 
+            forum_instance.user = request.user
+            forum_instance.save()
+            
+            
+            return redirect('/')
+    else:
+        form = CreateForum(instance=post)
+    context = {'form': form, 'forum': post, 'category':category_name}  # pass category to template if needed
+    return render(request, 'addForum.html', {"form":form, "forum":post})

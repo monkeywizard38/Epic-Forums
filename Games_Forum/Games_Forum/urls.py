@@ -48,6 +48,7 @@ urlpatterns = [
     #Create a reply to a video.
     path('addVideoReply/', addVideoReply, name='addVideoReply'),
 
+    path('editForum/<int:forum_id>/<str:category_name>/', editForum, name='editForum')
 
 
 ]

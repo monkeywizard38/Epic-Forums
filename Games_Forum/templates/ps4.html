@@ -50,8 +50,12 @@
     <br>
     <div class = "link">
     <a href="{% url 'addReply' %}?forum_id={{ f.id }}">Add a Reply</a>
+    <br>
+    <br>
+    {%if request.user.username == f.user.username%}<a href="{% url 'editForum' f.id f.category %}">Edit Post</a>{%endif%}
     </div>
     <br>
+
 <!-- Case for no posts. -->
 {% empty %}
   <div class = "noposts">

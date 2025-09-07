@@ -3,12 +3,12 @@
 
 <!-- We have this head here to have the page title and add css-->
 <head>
-    <title>Epic Forums - Add a New Video</title>
+    <title>Epic Forums - Add a New File</title>
     <link rel="stylesheet" href="{% static 'css/addForumcss.css' %}">
 </head>
 <!-- We use the center class here so we don't modify the whole page -->
 <div class = 'center'>
-<h2>Upload a Video</h2>
+<h2>Upload a Video or Image</h2>
 <!-- Here we have the form for Uploading a video. -->
 <form method="post" action="{% url 'addVideo' %}" enctype="multipart/form-data">
   {% csrf_token %}
@@ -32,7 +32,7 @@
   <label for="id_title">Title:</label><br>
   {{ form.title }}<br><br>
 
-  <label for="id_video">Video file:</label><br>
+  <label for="id_video">File:</label><br>
   {{ form.video }}<br><br>
 
   

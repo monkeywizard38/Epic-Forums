@@ -23,6 +23,6 @@ urlpatterns = [
     #registers an account
     path('register/', register, name='register'),
     #similar to the forum, this is the same purpose but for videos
-    path('video/<str:category_name>/', category_videos, name='category_videos')
-
+    path('video/<str:category_name>/', category_videos, name='category_videos'),
+    path('editForum/<int:forum_id>/', editForum, name='editForum')
 ]

@@ -4,7 +4,7 @@
 
 <!-- We have this head here to have the page title and add css-->
 <head>
-  <title>Epic Forums - Xbox Series X/S Videos</title>
+  <title>Epic Forums - Xbox Series X/S Files</title>
   <link rel="stylesheet" href="{% static 'css/xboxvidscss.css' %}">
 </head>
 
@@ -12,7 +12,7 @@
   <h2>Xbox Series X/S Videos</h2>
 <!-- This part is the link to uploading a new video -->    
 <div class = "create">
-  <a href="{% url 'addVideo' %}?category=xseriesvideos">Upload a Video about a Xbox Series X/S Game Here!</a>
+  <a href="{% url 'addVideo' %}?category=xseriesvideos">Upload a Video or Image about a Xbox Series X/S Game Here!</a>
 </div>
 <br><br>
 <div class = "format">
@@ -24,12 +24,16 @@
     </div>
     <div class = "description">
     <p>Uploaded by {{ v.user.username }} on {{ v.uploaded_at|date:"M d, Y" }}</p>
+    {% if ".mp4" in v.video.url or ".mov" in v.video.url or ".avi" in v.video.url %}
 
     <video width="480" controls>
       <source src="{{ v.video.url }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    
+    {% elif ".jpg" in v.video.url or ".jpeg" in v.video.url or ".png" in v.video.url %}
+      <img src="{{ v.video.url }}" alt="{{ v.title }}" width="480" />
+    <br>
+    {%endif%}
     <br>
       <br>
     
@@ -60,7 +64,7 @@
 <!-- Case for no posts. -->
 {% empty %}
   <div class = "noposts">
-    No videos yet in this category.
+    No Files yet in this category.
   </div>
 {% endfor %}
 </div>
