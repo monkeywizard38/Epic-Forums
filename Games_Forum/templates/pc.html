@@ -5,75 +5,76 @@
 <!-- We have this head here to have the page title and add css-->
 <head>
   <title>Epic Forums - PC Games</title>
-  <link rel="stylesheet" href="{% static 'css/pccss.css' %}">
+  <link rel="stylesheet" href="{% static 'css/pccss.css' %}" />
 </head>
 
 <body>
   <h2>PC Forum</h2>
-  
-<div class = "create">
-  <a href="{% url 'addForum' %}?category=pc">Create a Post about a PC Game Here!</a>
-</div>
-<br><br>
-<div class = "format">
-<div class = "posts">
-<!-- Here we display every post, by title, description, and what user created it. -->
-{% for f in forums%}
-  <div class = "title">
-    {{ f.topic }} 
-    </div>
-    <div class = "description">
-    {{ f.user.username }}:   {{ f.description }}
-    
-    <br>
-      <br>
-  <!-- This button allows us to hide or view replies. -->  
-  <div class="button" onclick="toggle(this)">
-            View Replies
-  </div>
 
-  <!-- Here we display every reply to a post and who created the reply. -->
-  <div class = "hide">
-    {% for reply in f.reply_set.all %}
-      <div class = "replies">
-      {{ reply.user.username }}:   {{ reply.discuss }}
-      <br><br>
+  <div class="create">
+    <a href="{% url 'addForum' %}?category=pc"
+      >Create a Post about a PC Game Here!</a
+    >
+  </div>
+  <br /><br />
+  <div class="format">
+    <div class="posts">
+      <!-- Here we display every post, by title, description, and what user created it. -->
+      {% for f in forums%}
+      <div class="title">{{ f.topic }}</div>
+      <div class="description">
+        {{ f.user.username }}: {{ f.description }}
+
+        <br />
+        <br />
+        <!-- This button allows us to hide or view replies. -->
+        <div class="button" onclick="toggle(this)">View Replies</div>
+
+        <!-- Here we display every reply to a post and who created the reply. -->
+        <div class="hide">
+          {% for reply in f.reply_set.all %}
+          <div class="replies">
+            {{ reply.user.username }}: {{ reply.discuss }}
+            <br /><br />
+          </div>
+
+          <!-- Case for no replies in the post. -->
+          {% empty %}
+          <p>No replies yet.</p>
+          {% endfor %}
+        </div>
       </div>
-        
-    <!-- Case for no replies in the post. -->  
-    {% empty %}
-      <p>No replies yet.</p>
-    {% endfor %}
-    </div>
-    </div>
-    <br>
-    <div class = "link">
-    <a href="{% url 'addReply' %}?forum_id={{ f.id }}">Add a Reply</a>
-    <br>
-    <br>
-    {%if request.user.username == f.user.username%}<a href="{% url 'editForum' f.id f.category %}">Edit Post</a>{%endif%}
-    </div>
-    <br>
-    
-<!-- Case for no posts. -->
-{% empty %}
-    <div class = "noposts">
-    No posts yet in this category.
-  </div>
-  
+      <br />
+      <div class="link">
+        <a href="{% url 'addReply' %}?forum_id={{ f.id }}">Add a Reply</a>
+        <br />
+        <br />
+        <!-- Here we check if this post is made by the logged in user, if so, they can edit it-->
+        {%if request.user.username == f.user.username%}<a
+          href="{% url 'editForum' f.id f.category %}"
+          >Edit Post</a
+        >{%endif%}
+      </div>
+      <br />
 
-{% endfor %}
-</div>
-</div>
-</body> 
+      <!-- Case for no posts. -->
+      {% empty %}
+      <div class="noposts">No posts yet in this category.</div>
+
+      {% endfor %}
+    </div>
+  </div>
+</body>
 
 <!-- Javascript function that allows you to to hide and view replies. -->
 <script>
-    function toggle(button) {
-      const divForReplies = button.nextElementSibling;
-      const isHidden = divForReplies.style.display === "none" || divForReplies.style.display === "";
+  function toggle(button) {
+    const divForReplies = button.nextElementSibling;
+    const isHidden =
+      divForReplies.style.display === "none" ||
+      divForReplies.style.display === "";
 
-      divForReplies.style.display = isHidden ? "block" : "none";
-      button.textContent = isHidden ? "Hide Replies" : "View Replies";;
-    }
-  </script>
+    divForReplies.style.display = isHidden ? "block" : "none";
+    button.textContent = isHidden ? "Hide Replies" : "View Replies";
+  }
+</script>

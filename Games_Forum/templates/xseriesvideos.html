@@ -1,4 +1,4 @@
-<!-- This is our html file for listing and viewing videos about Xbox Series X/S games. -->
+<!-- This is our html file for listing and viewing videos and images about Xbox Series X/S games. -->
 <!-- This is so we can use our css files. -->
 {% load static %}
 
@@ -9,27 +9,29 @@
 </head>
 
 <body>
-  <h2>Xbox Series X/S Videos</h2>
-<!-- This part is the link to uploading a new video -->    
+  <h2>Xbox Series X/S Files</h2>
+<!-- This part is the link to uploading a new file -->    
 <div class = "create">
   <a href="{% url 'addVideo' %}?category=xseriesvideos">Upload a Video or Image about a Xbox Series X/S Game Here!</a>
 </div>
 <br><br>
 <div class = "format">
 <div class = "posts">
-<!-- Here we display every video. -->
+<!-- Here we display every file. -->
 {% for v in videos %}
   <div class = "title">
     {{ v.title|default:"Untitled" }}
     </div>
     <div class = "description">
     <p>Uploaded by {{ v.user.username }} on {{ v.uploaded_at|date:"M d, Y" }}</p>
+    <!-- Here we check if this file is a video or not-->
     {% if ".mp4" in v.video.url or ".mov" in v.video.url or ".avi" in v.video.url %}
 
     <video width="480" controls>
       <source src="{{ v.video.url }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <!-- Here we check if this file is a file or not-->
     {% elif ".jpg" in v.video.url or ".jpeg" in v.video.url or ".png" in v.video.url %}
       <img src="{{ v.video.url }}" alt="{{ v.title }}" width="480" />
     <br>

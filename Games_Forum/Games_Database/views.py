@@ -155,11 +155,9 @@ def addVideoReply(request):
     }
     return render(request, 'addVideoReply.html', context)
 
-
+#This view allows a user to edit a forum post that they have made.
 @login_required
 def editForum(request,forum_id, category_name):
-    #category = request.POST.get("category") or request.GET.get("category")
-    #category = get_object_or_404(category, name=category_name)
     post = get_object_or_404(forum, id=forum_id, user=request.user)
     if request.method == 'POST':
         form = CreateForum(request.POST, instance = post)
